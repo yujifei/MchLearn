@@ -1,25 +1,27 @@
 #include "../Vector/vector.h"
 #include "../perceptron/perceptron.h"
+#include "../Utilities/dataio.h"
 #include<iostream>
+#include<fstream>
 #include<cstdlib>
 #include<vector>
 
 #define count_of(v) (sizeof(v) / sizeof(v[0]))
 
-template<class T> void printv(char* msg, const Vector<T>& v)
+template<class T> void printv(char* msg, const Vector<T>& v, std::ostream& os = std::cout)
 {
-    std::cout << msg << ':';
+    os << msg << ':';
     if (v.dim() == 0)
     {
-        std::cout << " empty\n";
+        os << " empty\n";
         return;
     }
-    std::cout << std::endl;
+    os << std::endl;
     for (int i = 0; i < v.dim() - 1; ++i)
     {
-        std::cout << v[i] << ", ";
+        os << v[i] << ", ";
     }
-    std::cout << v[v.dim() - 1] << std::endl;
+    os << v[v.dim() - 1] << std::endl;
 }
 
 void testv()
@@ -87,9 +89,32 @@ void testperceptron()
     std::cout << "b: " << r2.second << std::endl;
 }
 
+void testIO()
+{
+    const char* imgpath = "F:/VCProjects/MchLearn/bin/data/train-images-idx3-ubyte.gz";
+    const char* lblpath = "F:/VCProjects/MchLearn/bin/data/train-labels-idx1-ubyte.gz";
+    std::vector<Vector<float> > images;
+    std::vector<float> labels;
+
+    int n = 10;
+
+    loadMnistImage(imgpath, images, n);
+    loadMnistLabel(lblpath, labels, n);
+
+    std::ofstream ofs("F:/VCProjects/MchLearn/bin/Debug/data.txt");
+
+    for (int i = 0; i < n; ++i)
+    {
+        printv("image:", images[i], ofs);
+        std::cout << labels[i] << std::endl;
+    }
+    ofs.flush();
+    ofs.close();
+}
+
 int main(int argc, char* argv)
 {
-    testperceptron();
+    testIO();
     system("pause");
     return 0;
 }

@@ -1,14 +1,17 @@
 #pragma once
 
+#include "../Utilities/types.h"
 #include<memory>
 #include<iostream>
 
 template<class T> class Vector
 {
 public:
-    typedef unsigned long size_t;
-public:
-    Vector(size_t n, T v);
+    Vector(): m_size(0)
+    {
+        m_data.reset(nullptr);
+    }
+    Vector(size_t n, T v = T());
     Vector(size_t n, const T* v, size_t nv, T dv = T());
     Vector(const T* v, size_t n);
     Vector(const Vector& v);
@@ -23,6 +26,23 @@ public:
     T& operator[](size_t i)
     {
         return m_data[i];
+    }
+    bool resize(size_t n)
+    {
+        if (n > m_data)
+        {
+            T* data = new T[n];
+            if (!data)
+            {
+                return false;
+            }
+            for (size_t i = 0; i < m_size; ++i)
+            {
+                data[i] = m_data[i];
+            }
+            m_data.reset(data);
+        }
+        return true;
     }
 
     Vector operator+(T v) const;

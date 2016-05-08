@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utilities", "Utilities\Util
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "svm", "libsvm\svm\svm.vcxproj", "{2E9B8775-D5C7-4808-88CB-FE7A890E0FE0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libzlib", "libzlib\libzlib.vcxproj", "{52988BFF-0E59-4781-83C4-57B7CF41DEE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +45,10 @@ Global
 		{2E9B8775-D5C7-4808-88CB-FE7A890E0FE0}.Debug|Win32.Build.0 = Debug|Win32
 		{2E9B8775-D5C7-4808-88CB-FE7A890E0FE0}.Release|Win32.ActiveCfg = Release|Win32
 		{2E9B8775-D5C7-4808-88CB-FE7A890E0FE0}.Release|Win32.Build.0 = Release|Win32
+		{52988BFF-0E59-4781-83C4-57B7CF41DEE1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{52988BFF-0E59-4781-83C4-57B7CF41DEE1}.Debug|Win32.Build.0 = Debug|Win32
+		{52988BFF-0E59-4781-83C4-57B7CF41DEE1}.Release|Win32.ActiveCfg = Release|Win32
+		{52988BFF-0E59-4781-83C4-57B7CF41DEE1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

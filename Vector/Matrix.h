@@ -3,9 +3,6 @@
 template<class T> class Matrix
 {
 public:
-    typedef unsigned long size_t;
-
-public:
     Matrix(size_t r, size_t c, T v = T());
     Matrix(size_t r, size_t c, const T* av, size_t l, T v = T());
     Matrix(const Matrix& m);

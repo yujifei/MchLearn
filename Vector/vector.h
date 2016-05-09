@@ -80,6 +80,12 @@ public:
         return m_size;
     }
 
+    void swap(Vector& v)
+    {
+        std::swap(m_size, v.m_size);
+        std::swap(m_data, v.m_data);
+    }
+
 private:
     size_t m_size;
     std::unique_ptr<T[]> m_data;

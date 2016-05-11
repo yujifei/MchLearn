@@ -73,16 +73,16 @@ void testperceptron()
     float av2[] = {4.0, 3.0};
     float av3[] = {1.0, 1.0};
     std::vector<Vector<float> > x;
-    std::vector<float> y;
+    std::vector<int> y;
     x.push_back(Vector<float>(av1, count_of(av1)));
     x.push_back(Vector<float>(av2, count_of(av2)));
     x.push_back(Vector<float>(av3, count_of(av3)));
-    y.push_back(1.0);
-    y.push_back(1.0);
-    y.push_back(-1.0);
+    y.push_back(1);
+    y.push_back(1);
+    y.push_back(-1);
 
-    auto r1 = Perceptron(x, y);
-    auto r2 = PerceptronDual(x, y);
+    auto r1 = Perceptron(x, y, 10 * x.size());
+    auto r2 = PerceptronDual(x, y, 10 * x.size());
     printv("w", r1.first);
     std::cout << "b: " << r1.second << std::endl;
     printv("w", r2.first);

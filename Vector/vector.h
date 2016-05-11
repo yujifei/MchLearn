@@ -145,6 +145,8 @@ template<class T> Vector<T>::Vector(Vector<T>&& v)
 {
     m_data = std::move(v.m_data);
     m_size = v.m_size;
+    v.m_data.reset(nullptr);
+    v.m_size = 0;
 }
 
 template<class T> Vector<T>& Vector<T>::operator=(const Vector<T>& v)
@@ -176,6 +178,8 @@ template<class T> Vector<T>& Vector<T>::operator=(Vector<T>&& v)
     }
     m_data = std::move(v.m_data);
     m_size = v.m_size;
+    v.m_data.reset(nullptr);
+    v.m_size = 0;
 }
 
 template<class T> Vector<T> Vector<T>::operator+(T v) const
